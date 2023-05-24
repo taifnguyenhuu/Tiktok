@@ -1,0 +1,34 @@
+.wrapper {
+    --layout-width: 1150px;
+}
+.container {
+    max-width: var(--layout-width);
+    // min-height: 1000px;
+    margin: 0 auto;
+    margin-top: var(--g-header-height);
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+        flex-shrink: 0;
+        width: 356px;
+    }
+
+    .content {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end;
+
+        > * {
+            flex-grow: 1;
+        }
+    }
+}
+
+@media (max-width: 1071px) {
+    .container {
+        .sidebar {
+            width: 72px;
+        }
+    }
+}

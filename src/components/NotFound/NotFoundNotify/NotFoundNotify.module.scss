@@ -1,0 +1,14 @@
+.notify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 444px;
+
+    .notify__title {
+        margin-top: 24px;
+    }
+
+    .notify__content {
+        color: var(--text-gray-color);
+    }
+}

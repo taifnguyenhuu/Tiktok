@@ -1,0 +1,78 @@
+.wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 999999999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper.hidden-effect-default {
+    .overlay {
+        animation-name: hide-fade;
+    }
+    .content {
+        animation-name: hide-scale;
+        animation-fill-mode: backwards;
+    }
+}
+.wrapper.hidden-effect-fade {
+    .overlay,
+    .content {
+        animation: hide-fade 350ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: inherit;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: show-fade 500ms cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.content {
+    position: relative;
+    padding: 0;
+    opacity: 0;
+    animation: show-scale 500ms cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes show-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes hide-fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes show-scale {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes hide-scale {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0.2;
+    }
+}
